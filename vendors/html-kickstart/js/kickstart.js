@@ -40,7 +40,7 @@ jQuery(document).ready(function($){
 		captions: true,
 		adaptiveHeight: false,
 		touchEnabled: true,
-		pause: 4000,
+		pause: 1000,
 		autoControls: false,
 		controls: false,
 		autoStart: true,

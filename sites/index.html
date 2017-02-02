@@ -5,22 +5,24 @@
     <title>Title</title>
 
 
-
     <style>
         #project-label {
             display: block;
             font-weight: bold;
             margin-bottom: 1em;
         }
+
         #project-icon {
             float: left;
             height: 32px;
             width: 32px;
         }
+
         #project-description {
             margin: 0;
             padding: 0;
         }
+
         .bx-wrapper img {
             width: 200px;
             display: block;
@@ -42,40 +44,78 @@
 <p id="project-description"></p>
 
 
-
 <!-- Table -->
 
 <table class="striped tight sortable">
-    <thead><tr>
+    <thead>
+    <tr>
         <th>Item1</th>
         <th>Item3</th>
         <th>Item3</th>
-    </tr></thead>
-    <tbody><tr>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
         <td>Item3</td>
         <td>Item2</td>
         <td>Item1</td>
-    </tr><tr>
+    </tr>
+    <tr>
         <td>Item1</td>
         <td>Item2</td>
         <td>Item3</td>
-    </tr><tr>
+    </tr>
+    <tr>
         <td>Item1</td>
         <td>Item2</td>
         <td>Item3</td>
-    </tr><tr>
+    </tr>
+    <tr>
         <td>Item1</td>
         <td>Item2</td>
         <td>Item3</td>
-    </tr></tbody>
+    </tr>
+    </tbody>
 </table>
-<div style="width: 210px;height: 297px; border: solid 2px;">
-<ul  class="slideshow">
-    <li ><img src="../resources/img/mocks/1.PNG" width="210" height="297" /></li>
-    <li ><img src="../resources/img/mocks/2.PNG" width="210" height="297" /></li>
-    <li ><img src="../resources/img/mocks/3.PNG" width="210" height="297" /></li>
+<button onclick="$('.bxslider').bxSlider();"></button>
 
+<ul class="bxslider">
+    <li><img src="../resources/img/mocks/1.PNG" width="210" height="297"/></li>
+    <li><img src="../resources/img/mocks/2.PNG" width="210" height="297"/></li>
+    <li><img src="../resources/img/mocks/3.PNG" width="210" height="297"/></li>
 </ul>
+<div id="searchContainter" style="width: 900px" >
+    <div style="float: left;">
+        <form class="vertical">
+            <div class="form-group" style="float: left;margin-right: 50px">
+                <label for="doc_name">Document-Name:</label>
+                <input value="Universa CoC" type="text"  class="form-control" id="doc_name">
+                <label for="doc_date">Document-Date:</label>
+                <input type="text" value="24.12.2016" class="form-control" id="doc_date">
+                <label for="doc_type">Typ</label>
+                <input type="text" value="PDF" class="form-control" id="doc_type">
+            </div>
+            <div class="form-group" style="float: right;margin-right: 50px">
+                <label for="doc_owner">Owned by:</label>
+                <input type="text" value="A. Hauschild" class="form-control" id="doc_owner">
+
+                <label for="doc_pages">Owned by:</label>
+                <input type="text" value="3" class="form-control" id="doc_pages">
+
+                <label for="doc_group">Owned by:</label>
+                <input type="text" value="Insurance" class="form-control" id="doc_group">
+
+            </div>
+
+        </form>
+    </div>
+    <div style="width: 210px;height: 297px; float:left">
+        <ul class="slideshow">
+            <li><img src="../resources/img/mocks/1.PNG" width="210" height="297"/></li>
+            <li><img src="../resources/img/mocks/2.PNG" width="210" height="297"/></li>
+            <li><img src="../resources/img/mocks/3.PNG" width="210" height="297"/></li>
+        </ul>
+    </div>
 </div>
 </body>
 </html>
