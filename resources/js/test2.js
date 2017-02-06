@@ -41,7 +41,11 @@ $(function () {
 
         open: function (event, ui) {
            //
-
+            $(".innerDiv ul").removeAttr("style");
+            $(".innerDiv").find("*").removeClass();
+            $(".innerDiv ul").addClass("bxslider");
+            startBxSilder();
+            console.log('tesat');
            /* $(".item_result").find("li").removeClass();
             $(".item_result").find("ul").removeClass();
             $(".item_result").find("ul")[0].style.display="block";
@@ -63,6 +67,19 @@ $(function () {
 
     };
 */
+
+    $("#project").autocomplete("instance")._renderItem = function (ul, item) {
+        var outerDiv =  $("<div>");
+        var innerDiv = $("<div>").addClass("innerDiv").html(getSearchTemplate());
+        outerDiv.append(innerDiv);
+        return $("<li>")
+            //.append("<div id='placer'>")
+            .append(item.value)
+            .append(outerDiv)
+            .appendTo(ul);
+
+    };
+
     /*
     $("#project").autocomplete("instance")._resizeMenu = function () {
         this.menu.element.outerWidth(500);
@@ -107,15 +124,39 @@ function getSearchTemplate2() {
 function getSearchTemplate() {
 
     var html = `
+<div id="searchContainter" style="width: 900px">
+        <div style="float: left;">
+            <form class="vertical">
+                <div class="form-group" style="float: left;margin-right: 50px">
+                    <label for="doc_name">Document-Name:</label>
+                    <input value="Universa CoC" type="text" class="form-control" id="doc_name">
+                    <label for="doc_date">Document-Date:</label>
+                    <input type="text" value="24.12.2016" class="form-control" id="doc_date">
+                    <label for="doc_type">Typ</label>
+                    <input type="text" value="PDF" class="form-control" id="doc_type">
+                </div>
+                <div class="form-group" style="float: right;margin-right: 50px">
+                    <label for="doc_owner">Owned by:</label>
+                    <input type="text" value="A. Hauschild" class="form-control" id="doc_owner">
 
-    <div class="item_result" style="width: 210px;height: 297px; float:left">
-    <ul id="ul_slider" class="bxslider">
-    <li><img src="../resources/img/mocks/1.PNG" width="210" height="297"/></li>    
-    <li><img src="../resources/img/mocks/2.PNG" width="210" height="297"/></li>
-    <li><img src="../resources/img/mocks/3.PNG" width="210" height="297"/></li>
+                    <label for="doc_pages">Owned by:</label>
+                    <input type="text" value="3" class="form-control" id="doc_pages">
+
+                    <label for="doc_group">Owned by:</label>
+                    <input type="text" value="Insurance" class="form-control" id="doc_group">
+
+                </div>
+
+            </form>
+        </div>
+    <div  style="width: 170;height: 230px; float:left">
+    <ul class="bxslider">
+    <li><img src="../resources/img/mocks/1.PNG" width="153" height="216"/></li>    
+    <li><img src="../resources/img/mocks/2.PNG" width="153" height="216"/></li>
+    <li><img src="../resources/img/mocks/3.PNG" width="153" height="216"/></li>
     </ul>
     </div>
-
+</div>
 
 
 `;
@@ -132,13 +173,14 @@ function startBxSilder(){
         speed: 500, // transition time
         startSlide: 0,
         infiniteLoop: true,
-        captions: true,
+        captions: false,
         adaptiveHeight: false,
-        touchEnabled: true,
+        touchEnabled: false,
         pause: 1000,
         autoControls: false,
         controls: false,
         autoStart: true,
+        pager: false,
         auto: true
     });
 }
