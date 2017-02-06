@@ -41,25 +41,28 @@ $(function () {
 
         open: function (event, ui) {
            //
-            var ele =document.getElementById("testxxx");
-            ele.style.display="inline";
-            $(ele).find("li").removeClass("ui-menu-divider");
-            $(ele).find("li").removeClass("ui-widget-content");
 
-            document.getElementById("testxxx").className="bxslider2";
-            $('.bxslider2').bxSlider();
-
+           /* $(".item_result").find("li").removeClass();
+            $(".item_result").find("ul").removeClass();
+            $(".item_result").find("ul")[0].style.display="block";
+            var test = $(".item_result").find("ul");
+            $("#ul_slider")[0].className="bxslider";
+            startBxSilder();
+            //document.getElementById("testxxx").className="bxslider2";
+            //$('.bxslider2').bxSlider();
+*/
         }
 
     });
+    /*
     $("#project").autocomplete("instance")._renderItem = function (ul, item) {
 
         return $("<li style='border-bottom-color: #1d1e1f;height: 215px'>")
-            .append(aaaaa)
+            .append(item.value)
             .appendTo(ul);
 
     };
-
+*/
     /*
     $("#project").autocomplete("instance")._resizeMenu = function () {
         this.menu.element.outerWidth(500);
@@ -67,14 +70,17 @@ $(function () {
 
         //
     };*/
-
+/*
     $("#project").autocomplete("instance")._renderMenu = function (ul,item) {
         var that = this;
         $("<li style='border-bottom-color: #1d1e1f;height: 215px'>")
-            .append(getSearchTemplate3())
+            .append(item.desc)
             .appendTo(ul);
+        $("#result").html(getSearchTemplate());
+        $("#result").find("ul").className="bxslider";
+        startBxSilder();
     };
-
+*/
 
 });
 
@@ -102,8 +108,8 @@ function getSearchTemplate() {
 
     var html = `
 
-    <div style="width: 210px;height: 297px; float:left">
-    <ul class="bxslider">
+    <div class="item_result" style="width: 210px;height: 297px; float:left">
+    <ul id="ul_slider" class="bxslider">
     <li><img src="../resources/img/mocks/1.PNG" width="210" height="297"/></li>    
     <li><img src="../resources/img/mocks/2.PNG" width="210" height="297"/></li>
     <li><img src="../resources/img/mocks/3.PNG" width="210" height="297"/></li>
@@ -111,26 +117,32 @@ function getSearchTemplate() {
     </div>
 
 
-`;
-
-    return html;
-
-}
-
-function getSearchTemplate3() {
-
-    var html = `
-
-<ul id="testxxx" style="display:inline">
-    <li><img src="../resources/img/mocks/1.PNG" width="210" height="297"/></li>
-    <li><img src="../resources/img/mocks/2.PNG" width="210" height="297"/></li>
-    <li><img src="../resources/img/mocks/3.PNG" width="210" height="297"/></li>
- </ul>
 
 `;
 
     return html;
-
 }
+
+function startBxSilder(){
+    $('.bxslider').bxSlider({
+        mode: 'horizontal', // 'horizontal', 'vertical', 'fade'
+        video: true,
+        useCSS: true,
+        pager: true,
+        speed: 500, // transition time
+        startSlide: 0,
+        infiniteLoop: true,
+        captions: true,
+        adaptiveHeight: false,
+        touchEnabled: true,
+        pause: 1000,
+        autoControls: false,
+        controls: false,
+        autoStart: true,
+        auto: true
+    });
+}
+
+
 
 

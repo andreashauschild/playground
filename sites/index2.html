@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+    <style>
+        #project-label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 1em;
+        }
+
+        #project-icon {
+            float: left;
+            height: 32px;
+            width: 32px;
+        }
+
+        #project-description {
+            margin: 0;
+            padding: 0;
+        }
+
+        .bx-wrapper img {
+            width: 200px;
+            display: block;
+        }
+    </style>
+    <script src="../vendors/jquery/jquery-3.1.1.js"></script>
+    <script src="../vendors/jquery-ui/jquery-ui.js"></script>
+    <link rel="stylesheet" href="../vendors/jquery-ui/jquery-ui.theme.css">
+    <link rel="stylesheet" href="../vendors/jquery-ui/jquery-ui.structure.css">
+
+
+    <script src="../resources/js/test2.js"></script>
+    <script src="../vendors/html-kickstart/js/kickstart.js"></script>
+    <link rel="stylesheet" href="../vendors/html-kickstart/css/kickstart.css">
+
+
+</head>
+<body>
+<table border="2">
+    <tr>
+        <td>
+            <div id="project-label">Select a project (type "j" for a start):</div>
+            <img id="project-icon" src="images/transparent_1x1.png" class="ui-state-default" alt="">
+            <input id="project">
+            <input type="hidden" id="project-id">
+            <p id="project-description"></p>
+        </td>
+        <td>
+            <button onclick="startBxSilder()"></button>
+            <div id="result">
+
+    xxxx
+            </div>
+        </td>
+        <td>
+            <div style="width: 210px;height: 297px; float:left">
+                <ul class="bxslider">
+                    <li><img src="../resources/img/mocks/1.PNG" width="210" height="297"/></li>
+                    <li><img src="../resources/img/mocks/2.PNG" width="210" height="297"/></li>
+                    <li><img src="../resources/img/mocks/3.PNG" width="210" height="297"/></li>
+                </ul>
+            </div>
+        </td>
+    </tr>
+</table>
+
+
+
+
+<br>
+<br>
+
+
+
+</body>
+</html>
