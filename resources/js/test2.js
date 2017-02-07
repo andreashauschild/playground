@@ -39,22 +39,18 @@ $(function () {
             return false;
         },
 
+        focus: function( event, ui ) {
+          console.log(ui.id);
+        },
+
         open: function (event, ui) {
            //
-            $(".innerDiv ul").removeAttr("style");
-            $(".innerDiv").find("*").removeClass();
-            $(".innerDiv ul").addClass("bxslider");
+
+            removeAllClasses();
+            restyleResult();
             startBxSilder();
             console.log('tesat');
-           /* $(".item_result").find("li").removeClass();
-            $(".item_result").find("ul").removeClass();
-            $(".item_result").find("ul")[0].style.display="block";
-            var test = $(".item_result").find("ul");
-            $("#ul_slider")[0].className="bxslider";
-            startBxSilder();
-            //document.getElementById("testxxx").className="bxslider2";
-            //$('.bxslider2').bxSlider();
-*/
+
         }
 
     });
@@ -73,8 +69,6 @@ $(function () {
         var innerDiv = $("<div>").addClass("innerDiv").html(getSearchTemplate());
         outerDiv.append(innerDiv);
         return $("<li>")
-            //.append("<div id='placer'>")
-            .append(item.value)
             .append(outerDiv)
             .appendTo(ul);
 
@@ -101,68 +95,27 @@ $(function () {
 
 });
 
-function getSearchTemplate2() {
 
-    var html = `
-    
-    <div style="width: 210px;height: 297px; float:left">
-    
-    <img src="../resources/img/mocks/1.PNG" width="210" height="297"/>  
-    <img src="../resources/img/mocks/2.PNG" width="210" height="297"/>
-    <img src="../resources/img/mocks/3.PNG" width="210" height="297"/>
-    
-    </div>
-
-
-`;
-
-    return html;
+function getSearchTemplate(id) {
+    if(id === undefined){
+        return $('#searchContainterTemplate').html();
+    }else{
+        return $(id).html();
+    }
 
 }
 
-
-function getSearchTemplate() {
-
-    var html = `
-<div id="searchContainter" style="width: 900px">
-        <div style="float: left;">
-            <form class="vertical">
-                <div class="form-group" style="float: left;margin-right: 50px">
-                    <label for="doc_name">Document-Name:</label>
-                    <input value="Universa CoC" type="text" class="form-control" id="doc_name">
-                    <label for="doc_date">Document-Date:</label>
-                    <input type="text" value="24.12.2016" class="form-control" id="doc_date">
-                    <label for="doc_type">Typ</label>
-                    <input type="text" value="PDF" class="form-control" id="doc_type">
-                </div>
-                <div class="form-group" style="float: right;margin-right: 50px">
-                    <label for="doc_owner">Owned by:</label>
-                    <input type="text" value="A. Hauschild" class="form-control" id="doc_owner">
-
-                    <label for="doc_pages">Owned by:</label>
-                    <input type="text" value="3" class="form-control" id="doc_pages">
-
-                    <label for="doc_group">Owned by:</label>
-                    <input type="text" value="Insurance" class="form-control" id="doc_group">
-
-                </div>
-
-            </form>
-        </div>
-    <div  style="width: 170;height: 230px; float:left">
-    <ul class="bxslider">
-    <li><img src="../resources/img/mocks/1.PNG" width="153" height="216"/></li>    
-    <li><img src="../resources/img/mocks/2.PNG" width="153" height="216"/></li>
-    <li><img src="../resources/img/mocks/3.PNG" width="153" height="216"/></li>
-    </ul>
-    </div>
-</div>
-
-
-`;
-
-    return html;
+function removeAllClasses(){
+    $(".innerDiv ul").removeAttr("style");
+    $(".innerDiv").find("*").removeClass();
 }
+
+function restyleResult(){
+    $( "div[id^='searchResultContainer']" ).addClass("searchContainer");
+    $( "form[id^='resultForm']" ).addClass("vertical");
+    $(".innerDiv ul").addClass("bxslider");
+}
+
 
 function startBxSilder(){
     $('.bxslider').bxSlider({
