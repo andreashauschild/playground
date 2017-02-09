@@ -23,12 +23,6 @@ $(function () {
     $("#project").autocomplete({
         minLength: 0,
         source: projects,
-        focus: function (event, ui) {
-            $("#project").val(ui.item.label);
-            $("#project-icon").attr("src", "../resources/imgres.jpg");
-
-            return false;
-        },
 
         select: function (event, ui) {
             $("#project").val(ui.item.label);
@@ -40,7 +34,8 @@ $(function () {
         },
 
         focus: function( event, ui ) {
-          console.log(ui.id);
+          console.log(event.relatedTarget);
+
         },
 
         open: function (event, ui) {
@@ -50,6 +45,7 @@ $(function () {
             restyleResult();
             startBxSilder();
             console.log('tesat');
+            $("li.ui-menu-item").children().css("display","inline-block");
 
         }
 

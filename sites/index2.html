@@ -6,24 +6,40 @@
 
 
     <style>
-        input{
-            padding:1px 0 !important;
+        input {
+            padding: 1px 0 !important;
             text-indent: 0px !important;
-            -moz-border-radius:0px !important;
-            -webkit-border-radius:0px !important;
-            border-radius:0px !important;
-            background: #ffffff; !important;
+            -moz-border-radius: 0px !important;
+            -webkit-border-radius: 0px !important;
+            border-radius: 0px !important;
+            background: #ffffff;
+        !important;
             padding-left: 5px !important;
-            -moz-box-shadow:inset 0 0 6px #ffffff !important;;
-            -webkit-box-shadow:inset 0 1px 6px #ffffff !important;;
-            box-shadow:inset 0 1px 6px #ffffff !important;
-            margin-bottom: 0px !important;;
+            -moz-box-shadow: inset 0 0 6px #ffffff !important;;
+            -webkit-box-shadow: inset 0 1px 6px #ffffff !important;;
+            box-shadow: inset 0 1px 6px #ffffff !important;
+            margin-bottom: 0px !important;
         }
 
-        .searchContainer{
+        .ui-state-active,
+        .ui-widget-content .ui-state-active,
+        .ui-widget-header .ui-state-active,
+        a.ui-button:active,
+        .ui-button:active,
+        .ui-button.ui-state-active:hover {
+            border: 1px solid #003eff;
+            background: rgba(229, 0, 81, 1) !important;
+            font-weight: normal;
+            color: #ffffff;
+        }
+
+        .searchContainer {
             font-family: "Lucida Sans Unicode";
             font-size: 8pt;
+            display: inline-block;
+            margin-bottom: 15px;
         }
+
         #project-label {
             display: block;
             font-weight: bold;
@@ -73,7 +89,7 @@
             <button onclick="startBxSilder()"></button>
             <div id="result">
 
-    xxxx
+                xxxx
             </div>
         </td>
         <td>
@@ -89,49 +105,88 @@
 </table>
 
 
-
-
 <br>
 <br>
+<ul>
+    <li style="background-color: red;">
+        <div  style="display: inline-block;" id="searchContainterTemplate">
+            <div id="searchResultContainer" class="searchContainer" style="float: left">
+                <div style="float: left; margin-top: 15px;">
+                    <form id="resultForm" class="vertical">
+                        <div class="form-group" style="float: left;margin-right: 15px">
+                            <label for="doc_name">Document-Name:</label>
+                            <input value="Universa CoC" type="text" class="form-control" id="doc_name">
+                            <label for="doc_date">Document-Date:</label>
+                            <input type="text" value="24.12.2016" class="form-control" id="doc_date">
+                            <label for="doc_type">Typ</label>
+                            <input type="text" value="PDF" class="form-control" id="doc_type">
+                        </div>
+                        <div class="form-group" style="float: right;margin-right: 15px">
+                            <label for="doc_owner">Owned by:</label>
+                            <input type="text" value="A. Hauschild" class="form-control" id="doc_owner">
 
-<div id="searchContainterTemplate">
-    <div id="searchResultContainer" class="searchContainer" style="float: left">
-        <div style="float: left; margin-top: 15px;">
-            <form id="resultForm" class="vertical">
-                <div class="form-group" style="float: left;margin-right: 15px">
-                    <label for="doc_name">Document-Name:</label>
-                    <input value="Universa CoC" type="text" class="form-control" id="doc_name">
-                    <label for="doc_date">Document-Date:</label>
-                    <input type="text" value="24.12.2016" class="form-control" id="doc_date">
-                    <label for="doc_type">Typ</label>
-                    <input type="text" value="PDF" class="form-control" id="doc_type">
+                            <label for="doc_pages">Owned by:</label>
+                            <input type="text" value="3" class="form-control" id="doc_pages">
+
+                            <label for="doc_group">Owned by:</label>
+                            <input type="text" value="Insurance" class="form-control" id="doc_group">
+
+                        </div>
+
+                    </form>
                 </div>
-                <div class="form-group" style="float: right;margin-right: 15px">
-                    <label for="doc_owner">Owned by:</label>
-                    <input type="text" value="A. Hauschild" class="form-control" id="doc_owner">
-
-                    <label for="doc_pages">Owned by:</label>
-                    <input type="text" value="3" class="form-control" id="doc_pages">
-
-                    <label for="doc_group">Owned by:</label>
-                    <input type="text" value="Insurance" class="form-control" id="doc_group">
-
+                <div style="width: 50px;height: 70px; float:left; margin-top: 15px;">
+                    <label for="preview">Preview:</label>
+                    <ul id="preview" class="bxslider">
+                        <li><img src="../resources/img/mocks/1.PNG" width="50" height="70"/></li>
+                        <li><img src="../resources/img/mocks/2.PNG" width="50" height="70"/></li>
+                        <li><img src="../resources/img/mocks/3.PNG" width="50" height="70"/></li>
+                    </ul>
                 </div>
+            </div>
 
-            </form>
         </div>
-        <div  style="width: 50px;height: 70px; float:left; margin-top: 15px;">
-            <label for="preview">Preview:</label>
-            <ul id="preview" class="bxslider">
-                <li><img src="../resources/img/mocks/1.PNG" width="50" height="70"/></li>
-                <li><img src="../resources/img/mocks/2.PNG" width="50" height="70"/></li>
-                <li><img src="../resources/img/mocks/3.PNG" width="50" height="70"/></li>
-            </ul>
+    </li>
+    <li style="background-color: yellow;">
+        <div  style="display: inline-block;" id="searchContainterTemplate">
+            <div id="searchResultContainer" class="searchContainer" style="float: left">
+                <div style="float: left; margin-top: 15px;">
+                    <form id="resultForm" class="vertical">
+                        <div class="form-group" style="float: left;margin-right: 15px">
+                            <label for="doc_name">Document-Name:</label>
+                            <input value="Universa CoC" type="text" class="form-control" id="doc_name">
+                            <label for="doc_date">Document-Date:</label>
+                            <input type="text" value="24.12.2016" class="form-control" id="doc_date">
+                            <label for="doc_type">Typ</label>
+                            <input type="text" value="PDF" class="form-control" id="doc_type">
+                        </div>
+                        <div class="form-group" style="float: right;margin-right: 15px">
+                            <label for="doc_owner">Owned by:</label>
+                            <input type="text" value="A. Hauschild" class="form-control" id="doc_owner">
+
+                            <label for="doc_pages">Owned by:</label>
+                            <input type="text" value="3" class="form-control" id="doc_pages">
+
+                            <label for="doc_group">Owned by:</label>
+                            <input type="text" value="Insurance" class="form-control" id="doc_group">
+
+                        </div>
+
+                    </form>
+                </div>
+                <div style="width: 50px;height: 70px; float:left; margin-top: 15px;">
+                    <label for="preview">Preview:</label>
+                    <ul id="preview" class="bxslider">
+                        <li><img src="../resources/img/mocks/1.PNG" width="50" height="70"/></li>
+                        <li><img src="../resources/img/mocks/2.PNG" width="50" height="70"/></li>
+                        <li><img src="../resources/img/mocks/3.PNG" width="50" height="70"/></li>
+                    </ul>
+                </div>
+            </div>
+
         </div>
-    </div>
-
-</div>
-
+    </li>
+</ul>
 
 </body>
 </html>
